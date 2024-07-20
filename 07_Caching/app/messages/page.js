@@ -1,16 +1,22 @@
-import Messages from '@/components/messages';
+// import { unstable_noStore } from "next/cache";
+
+import Messages from "@/components/messages";
+import { getMessages } from "@/lib/messages";
+
+// export const revalidate = 5; // keeps cached data for 5 secs
+// export cosnt dynamic = 'force-dynamic' // keeps no caching
 
 export default async function MessagesPage() {
-  const response = await fetch('http://localhost:8080/messages', {
-    headers: {
-      'X-ID': 'page',
-    },
-  });
-  const messages = await response.json();
+	// unstable_noStore();
+	// const response = await fetch("http://localhost:8080/messages");
+	// const messages = await response.json();
 
-  if (!messages || messages.length === 0) {
-    return <p>No messages found</p>;
-  }
+	const messages = await getMessages();
 
-  return <Messages messages={messages} />;
+	if (!messages || messages.length === 0) {
+		return <p>No messages found</p>;
+	}
+
+	return <Messages messages={messages} />;
 }
+
