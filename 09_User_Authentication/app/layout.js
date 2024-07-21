@@ -1,14 +1,15 @@
-import './globals.css';
+import "./globals2.css";
 
 export const metadata = {
-  title: 'Next Auth',
-  description: 'Next.js Authentication',
+	title: "Next Auth",
+	description: "Next.js Authentication",
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body>{children}</body>
+		</html>
+	);
 }
+
